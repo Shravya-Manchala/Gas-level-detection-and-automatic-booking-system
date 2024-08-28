@@ -1,0 +1,24 @@
+Import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+cylinder_level = input("Enter the current LPG cylinder level (in percentage): ")
+if int(cylinder_level) < 15:
+# Send an email notification
+sender_email = input()
+receiver_email = input()
+password = input()
+message MIMEMultipart()
+message["From"] = sender_email
+message["To"] = receiver_email
+message["Subject"] = "LPG cylinder level alert"
+body=f"The LPG cylinder level is currently at (cylinder_level)%. Please book a new cylinder as soon as possible."
+message.attach(MIMEText(body, "plain"))
+server = smtplib.SMTP("smtp.gmail.com", 587)
+server.starttis()
+server.login(sender_email, password)
+text message.as_string()
+server.sendmail(sender_email, receiver_email, text)
+print("Email notification sent successfully.")
+server.quit()
+# Continue with the booking process
+#
